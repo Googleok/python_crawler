@@ -7,7 +7,7 @@ from datetime import datetime
 from itertools import count
 from urllib.request import Request, urlopen
 
-import pandas as pd
+# import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
@@ -41,8 +41,8 @@ def crawling_pericana():
             results.append((name, address) + tuple(sidogu))
 
         # store      -> pandas
-        table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugun'])
-        table.to_csv('__results__/pericana.csv', encoding='utf-8', mode='w', index=True)
+        # table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugun'])
+        # table.to_csv('__results__/pericana.csv', encoding='utf-8', mode='w', index=True)
 def crawling_nene():
     results = []
     for page in range(1, 5):
@@ -61,14 +61,14 @@ def crawling_nene():
             break
 
         # store      -> pandas
-        table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugun'])
+        # table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugun'])
 
         # 실행 경로 찾기
         RESULT_DIR = f'{BASE_DIR}/__results__'
 
         print(BASE_DIR)
         print(RESULT_DIR)
-        table.to_csv(f'/root/crawling-results/nene.csv', encoding='utf-8', mode='w', index=True)
+        # table.to_csv(f'/root/crawling-results/nene.csv', encoding='utf-8', mode='w', index=True)
 
 
 def crawling_kyochon():
@@ -97,9 +97,9 @@ def crawling_kyochon():
                 print(name, address, sep=':')
 
     # store
-    table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugon'])
-    table.to_csv('__results__/kyochon.csv', encoding='utf-8', mode='w', index=True)
-    print(table)
+    # table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugon'])
+    # table.to_csv('__results__/kyochon.csv', encoding='utf-8', mode='w', index=True)
+    # print(table)
 
     for t in results:
         print(t)
@@ -146,9 +146,9 @@ def crawling_goobne():
     wd.quit()
 
     # store
-    table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugon'])
-    table.to_csv('__results__/goobne.csv', encoding='utf-8', mode='w', index=True)
-    print(table)
+    # table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugon'])
+    # table.to_csv('__results__/goobne.csv', encoding='utf-8', mode='w', index=True)
+    # print(table)
 
     for t in results:
         print(t)
