@@ -1,6 +1,8 @@
+import os
 import ssl
 import sys
 import time
+from builtins import print
 from datetime import datetime
 from itertools import count
 from urllib.request import Request, urlopen
@@ -11,6 +13,8 @@ from selenium import webdriver
 
 from collection import crawler
 
+# 베이스 폴더
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def crawling_pericana():
     results = []
@@ -58,7 +62,13 @@ def crawling_nene():
 
         # store      -> pandas
         table = pd.DataFrame(results, columns=['name', 'address', 'sido', 'gugun'])
-        table.to_csv('__results__/nene.csv', encoding='utf-8', mode='w', index=True)
+
+        # 실행 경로 찾기
+        RESULT_DIR = f'{BASE_DIR}/__results__'
+
+        print(BASE_DIR)
+        print(RESULT_DIR)
+        table.to_csv(f'/root/crawling-results/nene.csv', encoding='utf-8', mode='w', index=True)
 
 
 def crawling_kyochon():
